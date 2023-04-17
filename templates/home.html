@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Price Predictor</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+XzXJlqN2ST3Zl8a+UksdQRVvoxMfoo"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #f2edf7;
+        font-family: Arial, sans-serif;
+        /* background-image: url('./static/fruits_image.jpg');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: cover; */
+      }
+
+      .container {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: auto;
+        max-width: 500px;
+        padding: 30px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      .btn-primary {
+        background-color: #6c63ff;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+        transition: background-color 0.3s;
+      }
+
+      form {
+        background-color: #e7e4f5;
+        border-radius: 0.8rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        text-align: center;
+      }
+
+      h1 {
+        color: #6c63ff;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      label {
+        color: #6c63ff;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      select {
+        background-color: #fff;
+        border: 1px solid #6c63ff;
+        border-radius: 0.25rem;
+        color: #495057;
+        font-size: 1rem;
+        height: 3rem;
+        line-height: 1.5;
+        padding: 0.375rem 0.75rem;
+        text-align: center;
+        width: 60%;
+      }
+
+      button {
+        align-self: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center mb-5">Fruit Price Predictor</h1>
+      <form action="{{ url_for('predict') }}" method="POST">
+        <div class="form-group row">
+          <label for="Month" class="col-sm-2 col-form-label">Month</label>
+          <div class="col-sm-10">
+            <select class="form-control" id="Month" name="Month">
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Centername" class="col-sm-2 col-form-label"
+            >Centername</label
+          >
+          <div class="col-sm-10">
+            <select class="form-control" id="Centername" name="Centername">
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Bangaluru">Bangaluru</option>
+              <option value="Bhopal">Bhopal</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dehradun">Dehradun</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Lucknow">Lucknow</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Pune">Pune</option>
+              <option value="Raipur">Raipur</option>
+              <option value="Srinagar">Srinagar</option>
+              <option value="Varanasi">Varanasi</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Jammu">Jammu</option>
+              <option value="Nagpur">Nagpur</option>
+              <option value="Patna">Patna</option>
+              <option value="Ranchi">Ranchi</option>
+              <option value="Trivendrum">Trivendrum</option>
+              <option value="Shimla">Shimla</option>
+              <option value="Nasik">Nasik</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+      </form>
+    </div>
+  </body>
+</html>
