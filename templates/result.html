@@ -21,6 +21,10 @@
         text-align: center;
         margin-bottom: 20px;
       }
+      .imagefile {
+        text-align: center;
+        margin-bottom: 20px;
+      }
       .title {
         font-size: 28px;
         font-weight: bold;
@@ -61,10 +65,13 @@
       <div class="header">
         <h1 class="title">Fruit Price Prediction Results</h1>
         <p>
-          Top 10 Predicted fruits for Month: <b>{{ month }}</b> and
+          Top 6 Predicted fruits for Month: <b>{{ month }}</b> and
           Centername:<b> {{ city }}</b>
         </p>
       </div>
+      
+  
+      <div>
       <table class="table">
         <thead>
           <tr>
@@ -73,14 +80,60 @@
           </tr>
         </thead>
         <tbody>
-          {% for i in range(10) %}
+          {% for i in range(6) %}
           <tr>
             <td>{{ fruits[i] }}</td>
             <td>{{ prices[i] }}</td>
           </tr>
           {% endfor %}
         </tbody>
-      </table>
+      </table> 
     </div>
+    
+    <br><br>
+
+    <p>
+      Actual values of top 6 fruits for Month: <b>{{ month }}</b> and
+      Centername:<b> {{ city }}</b>
+    </p>
+    <div>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fruit</th>
+            <th>Actual Price(in INR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fruit, price in Actual_result_df.values[:6] %}
+          <tr>
+            <td>{{ fruit }}</td>
+            <td>{{ price }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+      <br>
+    </div>
+    <figure>
+      <img src="data:image/png;base64,{{ plot_data }}" alt="Predicted prices" />
+      <!-- <figcaption>Predicted Fruit Prices in {{ city }} for {{ month }}</figcaption> -->
+    </figure>
+    <br>
+
+    <figure>
+      <img src="data:image/png;base64,{{ plot_data2 }}" alt="Actual prices" />
+      <!-- <figcaption>Actual Fruit Prices in {{ city }} for {{ month }}</figcaption> -->
+    </figure>
+    <br><br>
+
+    <figure>
+      <img src="data:image/png;base64,{{ plot_data3 }}" alt="Comparison plot">
+      <!-- <figcaption>Actual Fruit Prices in {{ city }} for {{ month }}</figcaption> -->
+    </figure>
+
+    
   </body>
 </html>
