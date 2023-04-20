@@ -90,7 +90,7 @@ def predict():
     axis.set_title(f'Actual Fruit Prices in {Centername} for {Month}')
     axis.set_xlabel('Fruit')
     axis.set_ylabel('Price (in Rs)')
-    axis.tick_params(axis='x', rotation=45)
+    axis.tick_params(axis='x', rotation=25)
 
     # Save the plot to a buffer
     buffer2 = io.BytesIO()
@@ -109,12 +109,13 @@ def predict():
     # Add the bar plots for predicted and actual prices
     axis.bar(fruits, prices, color='green', label='Predicted')
     axis.bar(Actual_result_df["Fruit"].head(6), Actual_result_df["Price"].head(6), color='orange', label='Actual', alpha=0.7)
+    #axis_actual.bar(Actual_result_df["Fruit"].head(6), Actual_result_df["Price"].head(6) + 0.25, color='orange', label='Actual', alpha=0.7)
 
     # Add a line plot for predicted prices
-    axis.plot(fruits, prices, marker='o', color='purple', linestyle='dashed')
+    #axis.plot(fruits, prices, marker='o', color='purple', linestyle='dashed')
 
     # Add a line plot for actual prices
-    axis.plot(Actual_result_df["Fruit"].head(6), Actual_result_df["Price"].head(6), marker ='o', color='blue', linestyle='dashed')
+    #axis.plot(Actual_result_df["Fruit"].head(6), Actual_result_df["Price"].head(6), marker ='o', color='blue', linestyle='dashed')
 
     # Set the chart title, axis labels, and legend
     axis.set_title(f'Predicted vs Actual Fruit Prices in {Centername} for {Month}')
@@ -123,7 +124,7 @@ def predict():
     axis.legend()
 
     # Set the x-axis labels to 45-degree angle for readability
-    axis.tick_params(axis='x', rotation=45)
+    axis.tick_params(axis='x', rotation=20)
 
     # Set the y-axis limits to a difference of 1000
     y_min = min(min(prices), min(Actual_result_df["Price"].head(6)))
