@@ -1,6 +1,28 @@
 # Fruit_Price_Prediction_Model
 This project involves the development of a machine learning model to predict the fruit prices for various cities. The aim is to create a model that can accurately predict the prices of various fruits for a given city and month.The dataset contains prices of different fruits for different cities, along with other parameter such as month in India.
 
+## Installation
+
+1. Clone the repository from GitHub:
+
+```bash
+  git clone https://github.com/Omkar-Rajkumar-Khade/Fruit_Price_Prediction_Model.git
+```
+
+
+2. Install the required dependencies using pip:
+```bash
+pip install -r requirements.txt
+```
+
+
+## How to Use
+To get started with this project, follow these steps:
+* Clone this repository
+* Install the required dependencies using pip: pip install -r requirements.txt
+* Start the Flask server: python app.py
+* Send a POST request to the /predict endpoint with a JSON payload containing the values of various of city and month
+
 ### Folder Structure 
 
 `dataset` folder contains the engineering.csv dataset used in the project.
