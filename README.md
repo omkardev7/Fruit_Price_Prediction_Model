@@ -50,3 +50,29 @@ To run the project, you must have the following installed on your system:
 * Flask
 * Pandas
 * Scikit-learn
+
+## Machine Learning Model Training
+
+To predict the price of a bike, we trained three different regression models:
+
+* Random Forest Regressor (RFR)
+* Decision Tree Regressor (DTR)
+
+The transformers used in the pipeline are:
+
+* `ColumnTransformer`: Used to apply different transformers to different columns of the data.
+* `StandardScaler`: Used to standardize the numerical data.
+* `OneHotEncoder`: Used to encode categorical data.
+
+We created four pipelines, one for each regression model, using the two column transformers created earlier and the corresponding regression model.
+
+We trained each pipeline on the training data, made predictions using the test data, and evaluated each model's performance using R-squared score and Root mean square error (RMSE).
+
+After training and testing the four regression models, we found the following results:
+
+| Model           | R-square | RMSE |
+| ----------------- |----------------| ------------------------------------------------------------------ |
+| Random Forest Regressor (RFR) | 0.22| 1119.69 |
+| Decision Tree Regressor (DTR) |0.06 | 1380.21|
+
+Based on the results you provided, the Random Forest Regressor (RFR) seems to be the best-performing algorithm for this particular problem.
