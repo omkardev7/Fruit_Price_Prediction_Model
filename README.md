@@ -1,5 +1,5 @@
 # Fruit_Price_Prediction_Model
-This project involves the development of a machine learning model to predict the fruit prices for various cities. The aim is to create a model that can accurately predict the prices of various fruits for a given city and month.The dataset contains prices of different fruits for different cities, along with other parameter such as month in India.
+This project presents a machine learning approach to predict fruit prices for various cities. Two regression models, Random Forest Regressor and Decision Tree Regressor, were evaluated, and the results showed that the Random Forest Regressor performed better. The developed Flask web application takes user input in the form of a month and a center name and uses the machine learning model to predict the prices of fruits for that center in that month. The application displays the top six predicted fruit prices in a bar chart and compares them with the actual fruit prices for the specified center and month in another bar chart. Finally, a third bar chart is created that displays both the predicted and actual prices for the top six fruits in descending order. This project demonstrates the potential of machine learning in predicting fruit prices, which could have significant implications for the agriculture and food industries.
 
 ## Installation
 
@@ -68,6 +68,7 @@ We created four pipelines, one for each regression model, using the two column t
 
 We trained each pipeline on the training data, made predictions using the test data, and evaluated each model's performance using R-squared score and Root mean square error (RMSE).
 
+## Results
 After training and testing the four regression models, we found the following results:
 
 | Model           | R-square | RMSE |
@@ -75,4 +76,30 @@ After training and testing the four regression models, we found the following re
 | Random Forest Regressor (RFR) | 0.22| 1119.69 |
 | Decision Tree Regressor (DTR) |0.06 | 1380.21|
 
-Based on the results you provided, the Random Forest Regressor (RFR) seems to be the best-performing algorithm for this particular problem.
+Based on the R-square and RMSE values you provided, it appears that the Random Forest Regressor (RFR) outperformed the Decision Tree Regressor (DTR) in predicting the target variable. The RFR has an R-square of 0.22, which indicates that the model explains 22% of the variance in the target variable. The RMSE of 1119.69 suggests that the average distance between the predicted and actual values of the target variable is relatively low.
+
+In contrast, the DTR has an R-square of 0.06, which indicates that the model explains only 6% of the variance in the target variable. The RMSE of 1380.21 suggests that the average distance between the predicted and actual values of the target variable is relatively high.
+
+Based on the results provided, the Random Forest Regressor (RFR) seems to be the best-performing algorithm for this particular problem. As we can see, the RFR model outperforms the DTR model in both metrics. However, the R-squared values for both models are relatively low, indicating that the models aren't doing a great job of explaining the variance in the target variable.
+
+## Model Integration
+This project features a Flask application that permits users to interact with a machine learning model by entering customized input parameters such as months and city, and receiving fruit price predictions in response. Flask is a Python-based web framework that enables the development of web applications. The trained machine learning model is loaded using the pickle library from a saved file, allowing it to be integrated into the Flask application.
+
+The Flask app has two HTML templates: home.html and result.html, which provide the user interface for entering input parameters and displaying the predicted price. The home.html template includes a form where the user can input the necessary parameters to make a price prediction. When the user submits the form, the Flask app obtains the input parameters, and the machine learning model utilizes them to make a price prediction. The predicted price is then shown on the result.html template, which is responsible for presenting the predicted price in a user-friendly manner.
+
+This Flask web application that takes input from the user in the form of a month and a center name. It then uses a machine learning model to predict the prices of fruits for that center in that month and displays the top six predicted fruit prices in a bar chart.
+
+The script then filters the dataset to get the actual fruit prices for the specified center and month and displays the top six actual fruit prices in a second bar chart. Finally, the script creates a third bar chart that displays both the predicted and actual prices for the top six fruits in descending order.
+
+The bar charts are created using the Matplotlib library and are saved as PNG images. The PNG images are then converted to base64 format and embedded in the HTML template that is rendered by Flask.
+
+To run the Flask app, the app.run(debug=True) command is utilized, which launches the development server and enables debug mode. Debug mode is advantageous during development since it allows developers to view detailed error messages and other pertinent information that can be used to diagnose and fix issues with the app.
+
+To utilize the app, simply navigate to the home page (http://localhost:5000/) and input the desired parameters. Once the form is submitted, the predicted price is displayed on the results page. The app can be deployed on a local machine or a server for public use.
+
+## Conclusion
+In conclusion, this project presents a valuable application of machine learning in predicting fruit prices for different cities. The results of the evaluation of the two regression models show that the Random Forest Regressor model performs better in predicting fruit prices compared to the Decision Tree Regressor model. Although both models had relatively low R-squared values, this project serves as a starting point for future exploration of other regression models or optimization of hyperparameters to improve the accuracy of fruit price predictions.
+
+The Flask web application provides an interactive and user-friendly platform for users to predict and compare fruit prices for different centers and months. The use of bar charts to display the predicted and actual fruit prices provides an easy-to-understand visualization for users to compare and analyze the data. This tool could be useful for stakeholders in the agriculture and food industries to make informed decisions regarding pricing, distribution, and supply chain management.
+
+Overall, this project demonstrates the potential of machine learning in predicting fruit prices and provides a foundation for future research in this field. Further improvements could be made by incorporating more data sources, optimizing the models, and expanding the application to other regions and commodities.
